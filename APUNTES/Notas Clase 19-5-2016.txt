@@ -1,0 +1,9 @@
+LEER SOBRE: Caracteres de Escape
+
+strtok - separa una cadena de texto según marcadores de separación. Dos argumentos:
+	-string a separar, (NULL si sigo repitiendo sobre la misma cadena dentro de una estructura de repeticion)
+	-marcadores de separación
+
+strcopy(variableTipoString, "STRING")
+
+

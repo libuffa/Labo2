@@ -1,0 +1,6 @@
+c:\users\lbuffa\documents\visual studio 2012\Projects\Fecha\Fecha\bin\Debug\Fecha.exe.config
+c:\users\lbuffa\documents\visual studio 2012\Projects\Fecha\Fecha\bin\Debug\Fecha.exe
+c:\users\lbuffa\documents\visual studio 2012\Projects\Fecha\Fecha\bin\Debug\Fecha.pdb
+c:\users\lbuffa\documents\visual studio 2012\Projects\Fecha\Fecha\obj\Debug\Fecha.csprojResolveAssemblyReference.cache
+c:\users\lbuffa\documents\visual studio 2012\Projects\Fecha\Fecha\obj\Debug\Fecha.exe
+c:\users\lbuffa\documents\visual studio 2012\Projects\Fecha\Fecha\obj\Debug\Fecha.pdb

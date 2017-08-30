@@ -1,0 +1,99 @@
+Archivos:
+
+nombre.<extension>
+
+Tipos de archivos:
+
+C puede trabajar con agilidad con archivos de texto (.txt o extesion personalizada) o archivos binarios (.bin).
+
+Los .txt se guardan en distintos formatos como ASCII, ISO 8859-1, Windows 1252, Unicode...
+Los formatos se determinan para brindar distintos niveles de accesibilidad a la info que contiene. Las codificaciones sirven también para brindar compatibilidad con navegadores o SO.
+
+El archivo binarios no cuentan con codificaciones, por lo que una vez guardado, no son ilegibles para el humano promedio.
+
+Por Forma de acceso:
+
+Archivos secuenciales: los archivos de texto son un ejemplo-todo su contenido es interpretado como texto.
+Archivos de acceso directo: son archivos que pueden guardar varios tipos de datos mezclados-como texto con números insertos que permitan operaciones.
+
+qué puedo hacer con un archivo?
+	crear
+	escribir
+	leer
+	modificar
+	eliminar
+	agregar
+
+Los modificadores permiten llevar a cabo éstas tareas:
+	(wt)/(w)rite - ESCRIBE DESDE CERO, si había algo antes, lo borra.
+	(rt)/(r)ead 	- LEE EL ARCHIVO
+	(at)/(a)ppend- AGREGA INFORMACIÓN
+
+ESTRUCTURAS
+	nombres de archivo: string
+	modo: modificador (w+),(r+),(a+) // para binarios ...+(b)
+	FILE tiene un puntero que apunta a la dirección del inicio del archivo en la memoria física *archivo
+Apertura de archivos de textos: fsopen
+Cierre de archivos de textos: fclose
+
+PROCESAMIENTO DE ARCHIVOS
+
+FORMAS DE FIN DE ARCHIVO (EOF)
+
+*EOF= Char que determina el final del archivo.
+*feof = devuelve el char EOF si se ha llegado al final del archivo. Es muy útil para binarios. (feof devuelve un tipo 0/1, como Booleano. Por lo que la condición de cierre sería "while(!feof(archivo))")
+
+FORMAS DE LEER ARCHIVOS DE TEXTO
+
+*fgetc= Lee char por char, loopeando por todo el archivo.
+*fgets (F de FILE, GET de obtener, S de string)= Requiere crear antes un string por línea, como por ej "texto[2000]". En esa variable, se guarda una línea de texto. Su sintaxis es "fgets(texto, 2000, archivo);", donde texto es la variable string donde guardar lo que se lee, 2000, la cantidad de espacio en memoria a leer, archivo, qué archivo debo leer.
+*fscanf(archivo a levantar, "%d\t%s\n", DIRECCIÓN DE LAS VARIABLES, QUE DEBEN SER DECLARADAS- &variable o solo varible caracter si es string)= sirve para leer archivos aperturados con el modificador "r" y se debe determinar el formato a leer SI O SI. Se guarda en memoria. Para imprimirlo, debe ser continuado con un "printF("%d\t%s\n", VARIABLES);".
+
+FORMAS DE IMPRIMIR ARCHIVOS DE TEXTO
+
+*putchar(var char)= imprime char por char, idem a Printf.
+*puts(string) = imprime líneas completas de texto, por bloques.
+
+FORMAS DE ESCRIBIR ARCHIVO DE TEXTO
+
+*fprintf(archivo a crear, "%d\t%s\n", VARIABLES)= escribe las variables en el archivo de texto- \t es tabulación
+
+EJEMPLO DE USO
+
+int main(){
+FILE *archivo;
+char c=0;	
+archivo=fopen("texto.txt","r+"); //"texto.txt" está en el mismo directorio que el programa // "r+" es el tipo de apertura
+if(archivo!=NULL) //Si la dirección es distinta de vacío, o sea, si el archivo existe
+	{/*apertura correcta */
+		while(c!=EOF) //EOF es End Of File, caracter que determina el final del archivo.
+		{ /*se lee hasta llegar al final */
+		c=fgetc(archivo); //FGETC es F de File, GET de obtener, C de char; copia char por char en var c y lo muestra
+		putchar(c); //idem a un Printf, muestra el caracter. SOLO FUNCIONA PARA VARIABLES CHAR.
+	fclose(archivo);
+	}
+else{printf("Error! No se encontró el archivo");}
+system("pause");
+return 0;
+}
+
+
+EJEMPLO 2
+
+int main(){
+FILE *archivo;
+char texto[2000];	
+archivo=fopen("texto.txt","r+");
+if(archivo!=NULL) {
+	while(!feof(archivo)) //EOF es End Of File, caracter que determina el final del archivo.
+		{
+		puts(texto);
+		fgets(texto,2000,archivo);
+		}
+	fclose(archivo);
+	}
+else{printf("Error! No se encontró el archivo");}
+system("pause");
+return 0;
+}
+

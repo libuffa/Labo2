@@ -1,0 +1,19 @@
+# depslib dependency file v1.0
+1465513153 source:c:\users\infolab\desktop\ejercicios 9-6-16\busquedasecuencial.c
+	<stdio.h>
+	<stdlib.h>
+
+1465515039 source:c:\users\infolab\desktop\ejercicios 9-6-16\libreria.c
+	<stdio.h>
+	"Libreria.h"
+
+1465510890 c:\users\infolab\desktop\ejercicios 9-6-16\libreria.h
+
+1385316878 source:c:\users\infolab\desktop\ejercicios 9-6-16\main.c
+	<stdio.h>
+	<stdlib.h>
+
+1465515207 source:c:\users\infolab\desktop\ejercicios 9-6-16\busquedabinaria.c
+	<stdio.h>
+	<stdlib.h>
+

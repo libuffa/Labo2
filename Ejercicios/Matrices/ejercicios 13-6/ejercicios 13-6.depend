@@ -1,0 +1,19 @@
+# depslib dependency file v1.0
+1465853497 source:c:\users\infolab\desktop\ejercicios 13-6\libreria.c
+	<stdio.h>
+	"Libreria.h"
+
+1465851702 c:\users\infolab\desktop\ejercicios 13-6\libreria.h
+
+1465861559 source:c:\users\infolab\desktop\ejercicios 13-6\main.c
+	<stdio.h>
+	<stdlib.h>
+
+1465858122 source:c:\users\infolab\desktop\ejercicios 13-6\ej45.c
+	<stdio.h>
+	<stdlib.h>
+
+1465860111 source:c:\users\infolab\desktop\ejercicios 13-6\ejpag20(modificado).c
+	<stdio.h>
+	<stdlib.h>
+

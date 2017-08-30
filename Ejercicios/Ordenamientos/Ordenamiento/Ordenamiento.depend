@@ -1,0 +1,12 @@
+# depslib dependency file v1.0
+1465258904 source:c:\users\infolab\desktop\ordenamiento\funciones.c
+	<stdio.h>
+	"funciones.h"
+
+1465255828 c:\users\infolab\desktop\ordenamiento\funciones.h
+
+1465259123 source:c:\users\infolab\desktop\ordenamiento\main.c
+	<stdio.h>
+	<stdlib.h>
+	"funciones.h"
+

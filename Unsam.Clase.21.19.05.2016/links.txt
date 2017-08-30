@@ -1,0 +1,1 @@
+http://stackoverflow.com/questions/229924/difference-between-files-writen-in-binary-and-text-mode

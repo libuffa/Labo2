@@ -1,0 +1,81 @@
+STRUCT
+
+Es un TIPO DE DATO declarado por el programador.
+Los STRUCTS funcionan como un sistema de información de tipo tabla. Las variables declaradas dentro del STRUCT son los campos que conforman una tabla, los distintos STRUCTS son los distintos registros.
+Ejemplo:
+TIPO 1
+	typedef struct{		//typedef declara ALIAS en C
+		char nombre[25];
+		int edad;
+		} Persona; //Declaración de nombre del STRUCT
+TIPO 2
+	struct Persona{
+		char nombre[25];
+		int edad;
+		}
+
+Declarado el STRUCT, debo declarar una variable de tipo PERSONA, como por ejemplo:
+	Persona per //Per es una varible con un STRUCT como el de Persona.
+
+Luego, cada vez que me refiera a esa variable, lo haré usando la notación de tipo propiedades (o miembro). Por ejemplo:
+	per.nombre //propiedad nombre de per, nombre fue declarada en el STRUCT Persona
+	per.edad
+
+SIEMPRE se sigue el formato tipo VARIABLE.MIEMBRO
+
+*RESPECTO A PUNTEROS: Las estructuras STRUCTS tienen direcciones de memoria, que son las direcciones de comienzo del registro correspondiente.
+Se declaran como TIPO-DE-STRUCT *p. Para asignar, se asigna igual que un puntero estándar.
+Para emitir datos con punteros se usa el caracter "->". Por ejemplo: p->nombre
+
+LOS STRUCTS PUEDE ANIDARSE. Puedo tener un STRUCT dentro de un STRUCT. El STRUCT anidado debe estar declarado antes del STRUCT que la contiene.
+Para invocarlas en la asignación, puedo agregar miembros. Por ejemplo:
+	&empleado.fecnac.anio; &empleado.fecnac.mes //empleado es el STRUCT general, fecnac es el STRUCT anidado y anio-mes son los miembros que asignamos.
+
+*******************************************************************
+ARCHIVOS BINARIOS
+
+Archivos que almacena información de texto que no va a poder ser legible a simple vista, sino que tendrá un formato cifrado. Los archivos binarios trabajan muy bien asociados a STRUCTS.
+
+El tipo de archivo binario se crea usando los modificadores:
+
+<rb> READ BINARY-> o puedo sumar r+b
+<wb> WRITE BINARY-> o puedo sumar w+b
+<ab> APPEND BINARY-> o puedo sumar a+b -agrega información
+
+ESCRITURA BINARIA
+
+Considerando un STRUCT Persona -> struct Persona{char nombre[25]; int edad;}
+
+fwrite - cuatro parámetros. Ejemplo:
+	- &per, 		//DIRECCIÓN DE LA VARIABLE PERSONA per.	PERSONA es una estructura derivada de un STRUCT 	previamente declarado.
+	- sizeof(PERSONA), 	//es el tamaño que ocupa el STRUCT entero.
+	- 1, 			//es que estoy grabando solo una fila, un registro, una línea.
+	- pArchivo	 	//dónde estoy escribiendo la información.
+
+LECTURA BINARIA
+
+Para llevar a cabo la lectura de un archivo, es preciso volver a declarar el STRUCT igual que en el archivo de la escritura. Consideramos un STRUCT Persona y declaramos una variable aux de éste tipo.
+
+fread- cuatro parámetros. Ejemplo:
+	- &aux			//dirección de la variable Persona declarada donde traduzco la info leída.
+	- sizeof(PERSONA), 	//es el tamaño que ocupa el STRUCT entero.
+	- 1, 			//es que estoy leyendo solo una fila, un registro, una línea.
+	- pArchivo	 	//dónde estoy leyendo la información.
+
+OTRAS FUNCIONES
+
+Considerando un archivo llamado "f"
+
+fseek - Es un puntero que me ubica dentro del archivo binario. Tiene 3 parámetros:
+	- f 		//nombre del archivo a evaluar.
+	- 0 		//número de bytes de desplazamiento de la dirección de memoria (puntero) devuelto por el fseek.
+	- SEEK_END 	//macro de búsqueda del fin del archivo. Hay varias macros: SEEK_END, SEEK_CUR, SEEK_SET:
+		SEEK_SET	Beginning of file
+		SEEK_CUR	Current position of the file pointer
+		SEEK_END	End of file
+
+ftell - Retorna el tamaño de cada registro de un archivo binario. Si divido por sizeof(VARIABLESTRUCT) consigo conocer la 
+	cantidad de registros de un archivo binario. Tiene un solo parámetro:
+	- f 		//nombre del archivo a evaluar.
+
+Usados combinados, se puede traer valores específicos de un archivo binario (JUGANDO CON EL SEGUNDO PARÁMETRO DE SEEK)
